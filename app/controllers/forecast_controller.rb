@@ -1,11 +1,17 @@
 class ForecastController < ApplicationController
   # GET /
   def index
-    forecast = Forecast.new(zip_code: "58102")
-    @weather_data = parse_weather_json(
-      JSON.parse(forecast.get_current_forecast),
-      JSON.parse(forecast.get_daily_forecast)
-    )
+    @zip_code = "02123"
+    @cached = true
+
+    @weather_data = Rails.cache.fetch("weatherbit:postal_code:#{@zip_code}", expires_in: 30.minutes) do
+      forecast = Forecast.new(zip_code: @zip_code)
+      @cached = false
+      parse_weather_json(
+        JSON.parse(forecast.get_current_forecast),
+        JSON.parse(forecast.get_daily_forecast)
+      )
+    end
   end
 
   private

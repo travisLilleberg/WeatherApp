@@ -5,7 +5,8 @@
 <h1>Weather Forecast</h1>
 
 <div id="forecast">
-    <div><p>
-        <%= @weather_data %>
-    </p></div>
+    <div>
+        <p>This result has<%= @cached ? "" : " not" %> been cached.</p>
+        <p><%= @weather_data %></p>
+    </div>
 </div>
