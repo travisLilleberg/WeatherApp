@@ -1,5 +1,5 @@
 <%= form_with method: :get do |form| %>
   <%= form.label :zip_code, "Enter a zip code" %>
-  <%= form.search_field :zip_code %>
+  <%= form.search_field :zip_code, pattern: "[0-9]{5}", title: 'Zip codes should be 5 numbers, no punctuation', placeholder: @zip_code %>
   <%= form.submit "Search" %>
 <% end %>

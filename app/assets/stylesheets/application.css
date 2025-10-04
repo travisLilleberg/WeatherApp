@@ -20,6 +20,10 @@ h1 {
 
  #current_temp {
     font-size: 1.5em;
+    img {
+        max-height: 15px;
+        margin-left: .3em;
+    }
  }
 
  #extended {

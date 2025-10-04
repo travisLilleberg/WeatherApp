@@ -8,7 +8,11 @@
 
 <% if @weather_data %>
     <div id="current_temp">
-        <p>Current Temperature: <%= @weather_data[:temp] %><span>&#176;</span></p>
+        <p>Current Temperature: <%= @weather_data[:temp] %><span>&#176;</span>
+        <% if @cached %>
+            <%=image_tag("cache-icon.png") %>
+        <% end %>
+        </p>
     </div>
 
     <div id="extended">
