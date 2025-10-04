@@ -24,18 +24,23 @@ class ForecastController < ApplicationController
   # - high_temp, low_temp, date from daily forecast for today + 6 days
   def parse_weather_json(current_json, daily_json)
     output = { daily: [] }
-    output[:temp] = current_json["data"][0]["temp"]
+    if !current_json.empty?
+      output[:temp] = current_json["data"][0]["temp"]
+    end
 
-    i = 0
-    daily_json["data"].each do |d|
-      break if i >= 7
-      output[:daily].push({
-        valid_date: d["valid_date"],
-        high: d["high_temp"],
-        low: d["low_temp"]
-      })
+    if !daily_json.empty?
+      i = 0
+      daily_json["data"].each do |d|
+        break if i >= 7
+        output[:daily].push({
+          valid_date: d["valid_date"],
+          high: d["high_temp"],
+          low: d["low_temp"]
+        })
 
-      i += 1
+        i += 1
+    end
+
     end
 
     output
