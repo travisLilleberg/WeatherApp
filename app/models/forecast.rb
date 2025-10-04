@@ -41,6 +41,6 @@ class Forecast
     ##
     # Query parameters to pass on the API request.
     def query_params
-        "country=US&units=I&key=#{Rails.application.credentials.weatherbit[:key]}&postal_code="
+        "country=US&units=I&key=#{ENV['WEATHERBIT_KEY']}&postal_code="
     end
 end
