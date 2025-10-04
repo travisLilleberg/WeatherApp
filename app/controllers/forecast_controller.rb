@@ -19,7 +19,7 @@ class ForecastController < ApplicationController
   private
 
   ##
-  # Extracts the information we actually use:
+  # Extracts the information we actually use from the API data
   # - temp from current forecast,
   # - high_temp, low_temp, date from daily forecast for today + 6 days
   def parse_weather_json(current_json, daily_json)
@@ -39,8 +39,7 @@ class ForecastController < ApplicationController
         })
 
         i += 1
-    end
-
+      end
     end
 
     output

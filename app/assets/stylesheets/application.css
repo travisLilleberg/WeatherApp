@@ -8,3 +8,33 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+ body {
+    background-color: rgb(1.1765% 41.176% 63.137%);
+    color: rgb(99.608% 84.314% 66.667%)
+ }
+
+h1 {
+    font-size: 3em;
+}
+
+ #current_temp {
+    font-size: 1.5em;
+ }
+
+ #extended {
+    display: flex;
+
+    div {
+        margin-left: 1em;
+        margin-right: 1em;
+        padding-left: 1em;
+        padding-right: 1em;
+        border: 1px solid;
+    }
+
+    .date {
+        font-weight: bold;
+        font-size: 1.1em;
+    }
+ }

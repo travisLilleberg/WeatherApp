@@ -14,7 +14,7 @@
     <div id="extended">
     <% @weather_data[:daily].each do |d| %>
         <div>
-            <p><%= d[:valid_date] %></p>
+            <p class="date"><%= d[:valid_date] %></p>
             <p>High: <%= d[:high] %><span>&#176;</span></p>
             <p>Low: <%= d[:low] %><span>&#176;</span></p>
         </div>
