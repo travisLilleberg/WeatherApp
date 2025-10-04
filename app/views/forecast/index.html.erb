@@ -4,9 +4,20 @@
 
 <h1>Weather Forecast</h1>
 
-<div id="forecast">
-    <div>
-        <p>This result has<%= @cached ? "" : " not" %> been cached.</p>
-        <p><%= @weather_data %></p>
+<%= render "form" %>
+
+<% if @weather_data %>
+    <div id="current_temp">
+        <p>Current Temperature: <%= @weather_data[:temp] %><span>&#176;</span></p>
     </div>
-</div>
+
+    <div id="extended">
+    <% @weather_data[:daily].each do |d| %>
+        <div>
+            <p><%= d[:valid_date] %></p>
+            <p>High: <%= d[:high] %><span>&#176;</span></p>
+            <p>Low: <%= d[:low] %><span>&#176;</span></p>
+        </div>
+    <% end %>
+<% end %>
+
